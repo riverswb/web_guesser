@@ -6,7 +6,40 @@ get '/' do
   guess = params["guess"]
   message = guess_check(guess.to_i)
   correct_message = message_check(message)
-  erb :index, :locals => {:number => correct_message, :message => message}
+  color = color_check(message)
+  erb :index, :locals => {:number => correct_message,
+                          :message => message,
+                          :color => color}
+end
+
+def color_check(message)
+  if correct(message)
+    green
+elsif not_close(message)
+    dark_red
+  else
+    light_red
+  end
+end
+
+def correct(message)
+  message == "You got it right!"
+end
+
+def not_close(message)
+  message.include?("Way")
+end
+
+def light_red
+  color = "rgb(239, 167, 190)"
+end
+
+def dark_red
+  color = "rgb(246, 18, 56)"
+end
+
+def green
+  color = "rgb(18, 246, 34)"
 end
 
 def message_check(message)
