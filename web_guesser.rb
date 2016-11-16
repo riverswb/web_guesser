@@ -31,15 +31,15 @@ def not_close(message)
 end
 
 def light_red
-  color = "rgb(239, 167, 190)"
+  color = "#FFCCCB"
 end
 
 def dark_red
-  color = "rgb(246, 18, 56)"
+  color = "#FF0000"
 end
 
 def green
-  color = "rgb(18, 246, 34)"
+  color = "#00FF00"
 end
 
 def message_check(message)
